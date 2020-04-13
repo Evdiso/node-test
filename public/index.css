@@ -1,3 +1,28 @@
 .nav-wrapper {
   padding: 0 2rem;
 }
+
+.card-style {
+  width: 250px;
+}
+
+.wrapper-courses {
+  display: flex;
+  align-items: center;
+}
+
+.card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: 200px;
+}
+
+.card-image img {
+  width: 180px !important;
+}
+
+.price {
+  font-size: 1.5rem;
+}

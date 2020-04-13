@@ -19,6 +19,11 @@ class Course {
     }
   }
 
+  static async getById(id) {
+    const courses = await Course.getAll();
+    return courses.find((course) => course.id === id);
+  }
+
   async save() {
     const courses = await Course.getAll()
     courses.push(this.toJSON())
@@ -48,6 +53,25 @@ class Course {
             reject(err)
           } else {
             resolve(JSON.parse(content))
+          }
+        }
+      )
+    })
+  }
+
+  static async update(course) {
+    let courses = await Course.getAll()
+    courses = courses.map(c => c.id === course.id? c = {...course} : c);
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, '..', 'data', 'courses.json'),
+        JSON.stringify(courses),
+        (err) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
           }
         }
       )
