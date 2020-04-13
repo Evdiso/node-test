@@ -1,0 +1,12 @@
+<h1>Корзина</h1>
+
+    {{#if allCard.card.length}}
+    {{#each allCard.card}}
+    <div>Описание: {{title}}</div>
+    <div>Кол-во: {{size}}</div>
+    <div>Цена: {{price}}</div>
+    {{/each}}
+    {{else}}
+    <p>В корзине пока ничего нет</p>
+    {{/if}}
+    <div>Итого: {{allCard.coast}}</div>
